@@ -12,12 +12,15 @@ class Gear
     end
 
     def gear_inches
-        ratio * wheel.diameter
+        ratio * diameter
+    end
+
+    def diameter
+        wheel.diameter
     end
 end
 
 class Wheel
-    
     attr_reader :rim, :tire
 
     def initialize(rim, tire)
@@ -41,10 +44,10 @@ puts Gear.new(52, 11, 26, 1.5).gear_inches # 137.0909090909091
 puts Gear.new(30, 27, 24, 1.25).gear_inches # 125.27272727272728
 =end
 
-@wheel = Wheel.new(26, 1.5)
-puts @wheel.circumference
+wheel = Wheel.new(26, 1.5)
+puts wheel.circumference
 
-puts Gear.new(52, 11, @wheel).gear_inches
+puts Gear.new(52, 11, wheel).gear_inches
 
 puts Gear.new(52, 11).ratio
 
